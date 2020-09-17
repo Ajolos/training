@@ -1,0 +1,33 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZFIORI_TRAINING_SRV" xml:lang="pl" sap:schema-version="1">
+			<EntityType Name="Header" sap:content-version="1">
+				<Key><PropertyRef Name="UserName"/></Key><Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nazwa użytkownika"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="JoinedOn" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="JoinedAt" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="Info" Relationship="ZFIORI_TRAINING_SRV.MemberDetails" FromRole="FromRole_MemberDetails"
+					ToRole="ToRole_MemberDetails"/></EntityType>
+			<EntityType Name="Details" sap:content-version="1">
+				<Key><PropertyRef Name="UserName"/></Key><Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nazwa użytkownika"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FulllName" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="c" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Consent" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="TRUE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ExpectedRaise" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:unit="RaiseCurrency"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="RaiseCurrency" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/></EntityType>
+			<Association Name="MemberDetails" sap:content-version="1"><End Type="ZFIORI_TRAINING_SRV.Header" Multiplicity="1" Role="FromRole_MemberDetails"/><End Type="ZFIORI_TRAINING_SRV.Details" Multiplicity="0..1" Role="ToRole_MemberDetails"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_MemberDetails"><PropertyRef Name="UserName"/></Principal>
+					<Dependent Role="ToRole_MemberDetails"><PropertyRef Name="UserName"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZFIORI_TRAINING_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="HeaderSet" EntityType="ZFIORI_TRAINING_SRV.Header" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="DetailsSet" EntityType="ZFIORI_TRAINING_SRV.Details" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="MemberDetailsSet" Association="ZFIORI_TRAINING_SRV.MemberDetails" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="HeaderSet" Role="FromRole_MemberDetails"/><End EntitySet="DetailsSet" Role="ToRole_MemberDetails"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://saps4h.si-consulting.pl:443/sap/opu/odata/sap/ZFIORI_TRAINING_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://saps4h.si-consulting.pl:443/sap/opu/odata/sap/ZFIORI_TRAINING_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

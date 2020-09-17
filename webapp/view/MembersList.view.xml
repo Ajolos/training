@@ -1,0 +1,27 @@
+<mvc:View controllerName="training.fiori.traningApp.controller.MembersList" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<!-- https://sapui5.hana.ondemand.com/#/api/sap.m.Page -->
+	<Page title="{i18n>TIT_MemList}"> 
+	    <content>
+	        <!-- https://sapui5.hana.ondemand.com/#/api/sap.m.List -->
+	        <List items="{/HeaderSet}" id="membersList"> 
+	            <infoToolbar>
+	                <!-- https://sapui5.hana.ondemand.com/#/api/sap.m.Toolbar -->
+	                <Toolbar> 
+	                    <content>
+	                        <!-- https://sapui5.hana.ondemand.com/#/api/sap.m.SearchField --> 
+	                        <SearchField 
+	                            placeholder="{i18n>TXT_SearchPH}"
+	                            search="executeSearch"/> 
+	                    </content>
+	                </Toolbar>
+	            </infoToolbar>
+	            <items>
+	                <!-- https://sapui5.hana.ondemand.com/#/api/sap.m.StandardListItem -->
+	                <StandardListItem
+	                    title="{UserName}"
+	                    info="{parts:[{path:'i18n>TXT_Joined'},{path:'JoinedOn'},{path:'JoinedAt'}], formatter: '.formatInfo'}"/> 
+	            </items>
+	        </List>
+	    </content>
+	</Page>
+</mvc:View>
