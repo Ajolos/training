@@ -68,7 +68,7 @@ sap.ui.define([
 		        message = JSON.parse(e.responseText).error.message.value;
 		    }catch(err){
 		        // procedura awaryjna, gdyby nie udało sie przeczytać błędu z wyjątku
-		        message = JSON.parse(e.responseText);
+		        message = JSON.stringify(e);
 		    }	               
 		    // wyświetlenie standardowego popupu z błędem 
 		    sap.m.MessageBox.error(message);
