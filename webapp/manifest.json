@@ -96,6 +96,12 @@
 				"name": "MembersList",
 				"pattern": "",
 				"target": ["MembersList"]
+			}, {
+				"name": "MemberCreate",
+				"pattern": "create",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["MemberCreate"]
 			}],
 			"targets": {
 				"TargetMaster": {
@@ -111,6 +117,13 @@
 					"clearControlAggregation": true,
 					"viewName": "MembersList",
 					"viewLevel": 1
+				},
+				"MemberCreate": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": true,
+					"viewName": "MemberCreate",
+					"viewLevel": 2
 				}
 			}
 		}

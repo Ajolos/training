@@ -23,5 +23,17 @@
 	            </items>
 	        </List>
 	    </content>
+	    <footer>
+	        <Toolbar>
+	            <content>
+	                <ToolbarSpacer/>
+	                <Button 
+	                    icon="sap-icon://add" 
+	                    text="{i18n>BUT_MemberCreate}" 
+	                    type="Emphasized" 
+	                    press="goToRegistrationPress"/>
+	            </content>
+	        </Toolbar>
+	    </footer>
 	</Page>
 </mvc:View>

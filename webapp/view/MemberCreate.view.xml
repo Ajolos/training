@@ -1,0 +1,29 @@
+<mvc:View controllerName="training.fiori.traningApp.controller.MemberCreate" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<!-- https://sapui5.hana.ondemand.com/#/api/sap.m.Page -->
+	<Page title="{i18n>TXT_MemCreate}"> 
+	    <content>
+	        <!--https://sapui5.hana.ondemand.com/#/api/sap.ui.layout.form.SimpleForm-->
+	        <f:SimpleForm id="createForm">
+	            <Label text="{i18n>FLD_FullName}"/>
+	                <Input value="{FulllName}"/>
+	            <Label text="{i18n>FLD_Raise}"/>
+	                <Input value="{path:'ExpectedRaise', type:'training.fiori.trainingApp.utils.CurrencyType'}"/>
+                    <Select items="{/CurrencySet}" selectedKey="{RaiseCurrency}" showSecondaryValues="true">
+	                    <items>
+	                        <core:ListItem key="{CurrencyKey}" text="{CurrencyText}" additionalText="({CurrencyKey})"/>
+	                    </items>
+	                </Select>
+	            <Label/>
+	                <CheckBox selected="{Consent}" text="{i18n>CKL_Consent}"/>
+	        </f:SimpleForm>
+	    </content>
+	    <footer>
+	        <Toolbar>
+	            <content>
+	                <ToolbarSpacer/>
+	                <Button icon="sap-icon://save" text="{i18n>BUT_Save}" type="Emphasized" press="savePress"/>
+	            </content>
+	        </Toolbar>
+	    </footer>
+	</Page>
+</mvc:View>

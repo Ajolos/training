@@ -27,6 +27,11 @@ sap.ui.define([
 		                oEvent.getParameter("query").toUpperCase()
 		            )
 		        );
+		 },
+		 
+		 goToRegistrationPress: function(oEvent){
+		     // funkcja obsługująca zdarzenie kliknięcia w przycisk rejestracji; nawiguje do kolejnego ekranu
+		     sap.ui.core.UIComponent.getRouterFor(this).navTo("MemberCreate");
 		 }
 	});
 });
