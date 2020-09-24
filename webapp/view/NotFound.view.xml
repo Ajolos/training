@@ -1,0 +1,9 @@
+<mvc:View controllerName="training.fiori.traningApp.controller.NotFound" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<!-- https://sapui5.hana.ondemand.com/#/api/sap.m.MessagePage -->
+	<MessagePage
+	    text="{i18n>TXT_NotFound}"
+	    title="{i18n>TIT_NotFound}"
+	    description="{i18n>TXT_NotFoundTxt}"
+	    icon="sap-icon://sys-cancel-2"/>
+	    <!--Repozytorium ikon https://sapui5.hana.ondemand.com/sdk/test-resources/sap/m/demokit/iconExplorer/webapp/index.html#/overview/SAP-icons/?tab=grid-->
+</mvc:View>

@@ -90,7 +90,10 @@
 				"viewPath": "training.fiori.traningApp.view",
 				"controlAggregation": "pages",
 				"controlId": "app",
-				"clearControlAggregation": false
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": ["NotFound"]
+				}
 			},
 			"routes": [{
 				"name": "MembersList",
@@ -102,6 +105,18 @@
 				"titleTarget": "",
 				"greedy": false,
 				"target": ["MemberCreate"]
+			}, {
+				"name": "MemberEdit",
+				"pattern": "edit({UserName})",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["MemberEdit"]
+			}, {
+				"name": "NotFound",
+				"pattern": "notFound",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["NotFound"]
 			}],
 			"targets": {
 				"TargetMaster": {
@@ -124,6 +139,20 @@
 					"clearControlAggregation": true,
 					"viewName": "MemberCreate",
 					"viewLevel": 2
+				},
+				"MemberEdit": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": true,
+					"viewName": "MemberEdit",
+					"viewLevel": 2
+				},
+				"NotFound": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": true,
+					"viewName": "NotFound",
+					"viewLevel": 10
 				}
 			}
 		}

@@ -18,6 +18,8 @@
 	            <items>
 	                <!-- https://sapui5.hana.ondemand.com/#/api/sap.m.StandardListItem -->
 	                <StandardListItem
+	                    type="Active"
+	                    press="memberPress"
 	                    title="{UserName}"
 	                    info="{parts:[{path:'i18n>TXT_Joined'},{path:'JoinedOn'},{path:'JoinedAt'}], formatter: '.formatInfo'}"/> 
 	            </items>

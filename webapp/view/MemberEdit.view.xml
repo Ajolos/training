@@ -1,0 +1,58 @@
+<mvc:View controllerName="training.fiori.traningApp.controller.MemberEdit" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<!--Składnia expression (complex) binding: https://help.sap.com/doc/saphelp_uiaddon10/1.17/en-US/da/f6852a04b44d118963968a1239d2c0/content.htm?no_cache=true -->
+	<Page id="editPage" title="{= ${display>/editMode} ? ${i18n>TIT_EditPage} : ${i18n>TIT_DisplayPage}}"> 
+	    <content>
+	        <!--https://sapui5.hana.ondemand.com/#/api/sap.ui.layout.form.SimpleForm-->
+	        <f:SimpleForm id="createForm" editable="{display>/editMode}">
+	            <Label text="{i18n>FLD_FullName}"/>
+	                <!--https://sapui5.hana.ondemand.com/#/api/sap.m.VBox-->
+	                <VBox>
+	                    <items>
+	                        <Input value="{FullName}" visible="{display>/editMode}"/>
+	                        <Text text="{FullName}" visible="{=!${display>/editMode}}"/>
+	                    </items>
+	                </VBox>
+	            <Label text="{i18n>FLD_Raise}"/>
+	                <VBox> 
+	                    <HBox visible="{display>/editMode}">
+	                        <items>
+    	                        <Input value="{path:'ExpectedRaise', type:'training.fiori.trainingApp.utils.CurrencyType'}">
+    	                            <layoutData>
+    	                                <!--Użycie FlexItemData https://help.sap.com/doc/saphelp_uiaddon20/2.05/en-US/98/8d2c7652684dea98f9d6dbc94000c0/content.htm?no_cache=true -->
+    	                                <FlexItemData growFactor="1"/>
+    	                            </layoutData>
+    	                        </Input>
+    	                        <!-- Predefiniowane marginesy: https://sapui5.hana.ondemand.com/1.36.6/docs/guide/777168ffe8324873973151dae2356d1c.html-->
+                                <Select items="{/CurrencySet}" selectedKey="{RaiseCurrency}" showSecondaryValues="true" class="sapUiTinyMarginBegin">
+            	                    <items>
+            	                        <core:ListItem key="{CurrencyKey}" text="{CurrencyText}" additionalText="({CurrencyKey})"/>
+            	                    </items>
+            	                    <layoutData>
+            	                        <FlexItemData growFactor="0"/>
+            	                    </layoutData>
+            	                </Select>
+	                        </items>
+	                    </HBox>
+	                    <HBox visible="{=!${display>/editMode}}">
+	                         <!--https://sapui5.hana.ondemand.com/#/api/sap.m.ObjectNumber-->
+                            <ObjectNumber number="{ExpectedRaise}" unit="{RaiseCurrency}"/>
+	                    </HBox>
+	                </VBox>
+	            <Label/>
+	                <CheckBox selected="{Consent}" text="{i18n>CKL_Consent}" editable="{display>/editMode}"/>
+	        </f:SimpleForm>
+	    </content>
+	    <footer>
+	        <Toolbar>
+	            <content>
+	                <Button icon="sap-icon://delete" text="{i18n>BUT_Deregister}" press="deregisterPress"/>
+	                <ToolbarSpacer/>
+	                <Button text="{i18n>BUT_Edit}" press="editPress" visible="{=!${display>/editMode}}"/>
+	                <Button text="{i18n>BUT_Cancel}" press="cancelPress" visible="{display>/editMode}"/>
+	                <!--Repozytorium ikon https://sapui5.hana.ondemand.com/sdk/test-resources/sap/m/demokit/iconExplorer/webapp/index.html#/overview/SAP-icons/?tab=grid-->
+	                <Button icon="sap-icon://save" text="{i18n>BUT_Save}" type="Emphasized" press="savePress" visible="{display>/editMode}"/>
+	            </content>
+	        </Toolbar>
+	    </footer>
+	</Page>
+</mvc:View>

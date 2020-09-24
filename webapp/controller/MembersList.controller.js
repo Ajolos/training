@@ -32,6 +32,12 @@ sap.ui.define([
 		 goToRegistrationPress: function(oEvent){
 		     // funkcja obsługująca zdarzenie kliknięcia w przycisk rejestracji; nawiguje do kolejnego ekranu
 		     sap.ui.core.UIComponent.getRouterFor(this).navTo("MemberCreate");
+		 },
+		 
+		 memberPress: function(oEvent){
+		     var ctx = oEvent.getSource().getBindingContext();
+		     var ctxPath = ctx.getPath();
+		     sap.ui.core.UIComponent.getRouterFor(this).navTo("MemberEdit",{ "UserName": this.getView().getModel().getProperty(ctxPath + "/UserName") });
 		 }
 	});
 });
